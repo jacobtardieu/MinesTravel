@@ -2,6 +2,7 @@ package org.springframework.samples.travel.interfaces.web.controller;
 
 import javax.inject.Inject;
 
+import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.booking.Booking;
 import org.springframework.samples.travel.domain.shared.SearchCriteria;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,13 @@ import java.util.List;
  */
 @Controller
 public class UserController {
+
+    private final UserService userService;
+
+    @Inject
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(value = "/users/signup", method = RequestMethod.GET)
     public String signup() {

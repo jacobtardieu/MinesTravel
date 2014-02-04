@@ -2,26 +2,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@ page import="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter" %>
-<%@ page import="org.springframework.security.core.AuthenticationException" %>
-
 <div class="span-10 append-2 last">
-    <form  action="<c:url value="/users/add" />" method="post">
+    <form:form modelAttribute="user">
         <fieldset>
             <legend>User Information</legend>
             <p>
-                <label for="login">User:</label>
+                <label for="name">Name:</label>
                 <br />
-                <input type="text" name="login" id="login" required />
+                <form:input path="name"/>
+            </p>
+            <p>
+                <label for="username">Username:</label>
+                <br />
+                <form:input path="username"/>
             </p>
             <p>
                 <label for="password">Password:</label>
                 <br />
-                <input type="password" name="password" id="password" required />
+                <form:password path="password"/>
             </p>
             <p>
-                <button id="submit" type="submit">Sign up</button>
+                <button id="proceed" type="submit">Sign up</button>
+                <button id="cancel">Cancel</button>
             </p>
         </fieldset>
-    </form>
+    </form:form>
 </div>

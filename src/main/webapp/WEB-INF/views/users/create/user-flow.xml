@@ -4,14 +4,15 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 	<persistence-context/>
-	
-	<on-start>
-		<evaluate expression="userService.createUser(login, password)" result="flowScope.user" />
-	</on-start>
-	
-	<view-state id="enterUserDetails" model="user">
+
+    <on-start>
+        <evaluate expression="userService.createUser()" result="flowScope.user" />
+    </on-start>
+
+	<view-state id="signup" model="user">
 		<binder>
-			<binding property="login" required="true" />
+            <binding property="name" required="true" />
+			<binding property="username" required="true" />
 			<binding property="password" required="true" />
 		</binder>
 		<transition on="proceed" to="addUser" />

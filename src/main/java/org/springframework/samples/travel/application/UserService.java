@@ -33,4 +33,6 @@ public interface UserService {
 	 * @return  the user created
 	 */
 	User createUser(String username, String password, String name);
+
+    User createUser();
 }

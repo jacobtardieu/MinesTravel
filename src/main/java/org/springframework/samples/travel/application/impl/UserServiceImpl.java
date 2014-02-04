@@ -1,5 +1,6 @@
 package org.springframework.samples.travel.application.impl;
 
+import org.slf4j.Logger;
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
-		return this.userRepository.save(user);
+        return this.userRepository.save(user);
 	}
 
 	@Override
@@ -36,4 +37,9 @@ public class UserServiceImpl implements UserService {
 	public User createUser(String username, String password, String name) {
 		return new User(username, password, name);
 	}
+
+    @Override
+    public User createUser() {
+        return new User();
+    }
 }
