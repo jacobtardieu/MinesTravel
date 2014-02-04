@@ -16,5 +16,4 @@
 	<definition name="users/profile" extends="standardLayout">
 		<put-attribute name="body" value="/WEB-INF/views/users/profile.jsp" />
 	</definition>
-	
 </tiles-definitions>

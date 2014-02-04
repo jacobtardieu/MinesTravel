@@ -24,4 +24,6 @@ public interface UserService {
 	 *         otherwise.
 	 */
 	User findByUsername(String username);
+
+    User createUser();
 }
