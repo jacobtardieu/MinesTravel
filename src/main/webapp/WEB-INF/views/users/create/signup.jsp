@@ -15,6 +15,13 @@
                 <label for="username">Username:</label>
                 <br />
                 <form:input path="username"/>
+                <script type="text/javascript">
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "username",
+                        widgetType : "dijit.form.ValidationTextBox",
+                        widgetAttrs : { required : true, invalidMessage : "2 characters required.",
+                        regExp : "[0-9A-Za-z]{2-200}"}}));
+                </script>
             </p>
             <p>
                 <label for="password">Password:</label>
@@ -25,6 +32,9 @@
                 <button id="proceed" type="submit" name="_eventId_proceed">Sign up</button>
                 <button id="cancel" name="_eventId_cancel">Cancel</button>
             </p>
+            <script type="text/javascript">
+                Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));
+            </script>
         </fieldset>
     </form:form>
 </div>
