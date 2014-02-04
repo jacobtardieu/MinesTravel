@@ -41,14 +41,13 @@ public class BookingServiceImplTest {
         SearchCriteria searchCriteria = new SearchCriteria();
         List<Hotel> expectedHotels = newArrayList();
         when(hotelRepository.findHotelsByCriteria(searchCriteria)).thenReturn(expectedHotels);
-
         // When
         List<Hotel> hotels = service.findHotels(searchCriteria);
 
         // Then
         assertThat(hotels).isSameAs(expectedHotels);
     }
-
+    
     @Test
     public void shouldFindHotelsById() {
         // Given
