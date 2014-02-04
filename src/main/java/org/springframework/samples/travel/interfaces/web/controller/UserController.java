@@ -17,8 +17,8 @@ public class UserController {
 
     }
     
-//    @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
-//    public void profile(@PathVariable String id, Model model) {
-//    	System.out.println("AAAAAAAAAAAAAAA");
-//    }
+    @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
+    public void profile(@PathVariable String id, Model model) {
+    	System.out.println("AAAAAAAAAAAAAAA");
+    }
 }
