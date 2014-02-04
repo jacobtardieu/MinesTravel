@@ -14,7 +14,7 @@
 	</definition>
 
     <definition name="users/signup" extends="standardLayout">
-        <put-attribute name="body" value="/WEB-INF/views/users/signup.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/users/create/signup.jsp" />
     </definition>
 	
 </tiles-definitions>
