@@ -14,4 +14,11 @@ public interface UserRepository {
      *         otherwise.
      */
     User findByUsername(String username);
+
+	/**
+	 * Save an user into repository
+	 * @param user the user to save
+	 * @return the user saved
+	 */
+	User save(User user);
 }
