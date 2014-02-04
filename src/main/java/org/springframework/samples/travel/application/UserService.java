@@ -24,4 +24,13 @@ public interface UserService {
 	 *         otherwise.
 	 */
 	User findByUsername(String username);
+
+	/**
+	 * Create a new user
+	 * @param username  the username
+	 * @param password  the password
+	 * @param name the real name
+	 * @return  the user created
+	 */
+	User createUser(String username, String password, String name);
 }
