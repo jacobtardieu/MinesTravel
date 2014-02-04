@@ -51,5 +51,5 @@ public class BookingController {
         bookingService.cancelBooking(id);
         return "redirect:../hotels/search";
     }
-
+    
 }
