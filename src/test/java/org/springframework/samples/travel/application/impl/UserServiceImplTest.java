@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.samples.travel.domain.model.booking.Booking;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
 
@@ -39,6 +40,7 @@ public class UserServiceImplTest {
 
 		User userToSave = new User(username, password, name), expectedUser = new User(username, password, name);
 		when(userRepository.save(userToSave)).thenReturn(expectedUser);
+
 
 	}
 
