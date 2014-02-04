@@ -47,9 +47,21 @@
 		<div class="span-3">
 			<!-- previous link to implement -->
 		</div>
-		<div class="span-3 append-12 last">
-			<c:if test="${not empty hotelList && fn:length(hotelList) == searchCriteria.pageSize}">
-				<a id="moreResultsLink" href="hotels?searchString=${searchCriteria.searchString}&pageSize=${searchCriteria.pageSize}&page=${searchCriteria.page + 1}">More Results</a>
+		<div class="span-6 append-12 last">
+				<table>
+					<tr>
+						<td>
+							<c:if test="${searchCriteria.page != 0}">
+								<a id="previousResultsLink" href="hotels?searchString=${searchCriteria.searchString}&pageSize=${searchCriteria.pageSize}&page=${searchCriteria.page - 1}">Previous Results</a>
+							</c:if>
+						</td>
+						<td>
+							<c:if test="${not empty hotelList && fn:length(hotelList) == searchCriteria.pageSize}">
+								<a id="moreResultsLink" href="hotels?searchString=${searchCriteria.searchString}&pageSize=${searchCriteria.pageSize}&page=${searchCriteria.page + 1}">More Results</a>
+							</c:if>		
+						</td>	
+					</tr>
+				</table>
 				<script type="text/javascript">
 					Spring.addDecoration(new Spring.AjaxEventDecoration({
 						elementId: "moreResultsLink",
@@ -57,7 +69,6 @@
 						params: {fragments: "body"}		
 					}));
 				</script>
-			</c:if>		
 		</div>
 	</div>
 </c:if>
