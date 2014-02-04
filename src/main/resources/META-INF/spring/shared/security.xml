@@ -21,6 +21,7 @@
       </authentication-provider>
    </authentication-manager>
    
-   <beans:bean id="inMemoryUserDetailsService" class="org.springframework.samples.travel.infrastructure.security.InMemoryUserDetailsService" />
+<!--    <beans:bean id="inMemoryUserDetailsService" class="org.springframework.samples.travel.infrastructure.security.InMemoryUserDetailsService" /> -->
+   <beans:bean id="DatabaseUserDetailsService" class="org.springframework.samples.travel.infrastructure.security.DatabaseUserDetailsService" />
 
 </beans:beans>
