@@ -179,6 +179,18 @@ public class Booking implements Serializable {
         this.amenities = amenities;
     }
 
+	public String getAmens() {
+		if(this.getAmenities() == null) {
+			return "";
+		}
+		String s ="";
+		for(Amenity a : this.getAmenities()) {
+			s+= a.getName();
+			s += ",";
+		}
+		return s.substring(0,s.length() - 1);
+	}
+
     @Override
     public String toString() {
         return "Booking(" + user + "," + hotel + ")";
