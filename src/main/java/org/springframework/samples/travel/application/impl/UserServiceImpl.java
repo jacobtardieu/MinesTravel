@@ -34,6 +34,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(String username, String password, String name) {
-		new User(username, password, name);
+		return new User(username, password, name);
 	}
 }
