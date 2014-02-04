@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -25,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
+        user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
         return this.userRepository.save(user);
 	}
 
