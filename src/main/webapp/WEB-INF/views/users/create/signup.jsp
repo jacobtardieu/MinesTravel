@@ -22,8 +22,8 @@
                 <form:password path="password"/>
             </p>
             <p>
-                <button id="proceed" type="submit">Sign up</button>
-                <button id="cancel">Cancel</button>
+                <button id="proceed" type="submit" name="_eventId_proceed">Sign up</button>
+                <button id="cancel" name="_eventId_cancel">Cancel</button>
             </p>
         </fieldset>
     </form:form>

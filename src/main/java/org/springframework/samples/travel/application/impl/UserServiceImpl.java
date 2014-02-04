@@ -33,11 +33,6 @@ public class UserServiceImpl implements UserService {
 		return this.userRepository.findByUsername(username);
 	}
 
-	@Override
-	public User createUser(String username, String password, String name) {
-		return new User(username, password, name);
-	}
-
     @Override
     public User createUser() {
         return new User();

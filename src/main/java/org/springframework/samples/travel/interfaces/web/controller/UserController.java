@@ -27,11 +27,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/users/signup", method = RequestMethod.GET)
-    public String signup() {
-        return "users/create/signup";
-    }
-
     @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
     public String profile(@PathVariable String id) {
     	return "/users/profile";
