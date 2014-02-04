@@ -41,13 +41,14 @@ public class UserServiceImplTest {
 		// Given
 		String username = "username";
 		String password = "pass";
+		String name = "nom";
 
 		User user = new User();
 		User userToSave = new User(), expectedUser = new User();
 		when(userRepository.save(userToSave)).thenReturn(expectedUser);
 
 		// When
-		User user1 =service.createUser(username, password, );
+		User user1 =service.createUser(username, password, name);
 
 		// Then
 		assertThat(user1).isSameAs(expectedUser);
