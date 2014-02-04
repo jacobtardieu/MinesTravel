@@ -17,7 +17,7 @@ import java.util.List;
 public class UserController {
 
     @RequestMapping(value = "/users/signup", method = RequestMethod.GET)
-    public void signup() {
-
+    public String signup() {
+        return "users/signup";
     }
 }
