@@ -1,9 +1,9 @@
 package org.springframework.samples.travel.infrastructure.security;
 
-import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Sets.newHashSet;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.Map;
+import javax.inject.Inject;
 
 import org.springframework.samples.travel.domain.model.user.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -33,19 +33,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  */
 public class DatabaseUserDetailsService implements UserDetailsService {
 
-    private static final SimpleGrantedAuthority ROLE_SUPERVISOR = new SimpleGrantedAuthority("ROLE_SUPERVISOR");
-    private static final GrantedAuthority ROLE_USER = new SimpleGrantedAuthority("ROLE_USER");
-    private static final Map<String, User> GRANTED_USERS = newHashMap();
+    private UserRepository userRepository;
 
-    static {
-        GRANTED_USERS.put("keith",
-                new User("keith", "417c7382b16c395bc25b5da1398cf076", newHashSet(ROLE_USER, ROLE_SUPERVISOR)));
-        GRANTED_USERS.put("erwin",
-                new User("erwin", "12430911a8af075c6f41c6976af22b09", newHashSet(ROLE_USER, ROLE_SUPERVISOR)));
-        GRANTED_USERS.put("jeremy", new User("jeremy", "57c6cbff0d421449be820763f03139eb", newHashSet(ROLE_USER)));
-        GRANTED_USERS.put("scott", new User("scott", "942f2339bf50796de535a384f0d1af3e", newHashSet(ROLE_USER)));
-    }
-
+    @Inject
+	public DatabaseUserDetailsService(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
+    
     /*
      * (non-Javadoc)
      * 
@@ -54,15 +49,15 @@ public class DatabaseUserDetailsService implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	UserRepository r = null;
-    	r.findByUsername(username);
-    	
-    	
-    	
-        UserDetails userDetails = GRANTED_USERS.get(username);
-        if (userDetails == null) {
+    	org.springframework.samples.travel.domain.model.user.User user = userRepository.findByUsername(username);
+        if (user == null) {
             throw new UsernameNotFoundException("invalid username");
         }
+        List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
+		for (String role : user.getRoles()) {
+			roles.add(new SimpleGrantedAuthority(role));
+		}
+        UserDetails userDetails = new User(user.getName(), user.getPassword(), roles);
         return userDetails;
     }
 }
