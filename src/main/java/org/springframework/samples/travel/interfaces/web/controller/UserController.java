@@ -1,28 +1,26 @@
 package org.springframework.samples.travel.interfaces.web.controller;
 
-import java.security.Principal;
+import javax.inject.Inject;
 
+import org.springframework.samples.travel.application.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 /**
  * Created by calixtebonsart on 04/02/14.
  */
 @Controller
 public class UserController {
+    private final UserService userService;
 
-    @RequestMapping(value = "/users/signup", method = RequestMethod.GET)
-    public void signup() {
-
+    @Inject
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
-    
+
     @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
-    public void profile(Principal user, Model model) {
-//    	if (user != null)
-//    		return "/users/profile"; 
-//    	else
-//    		return "/users/login";
+    public void profile(@PathVariable String id) {
+    	
     }
 }

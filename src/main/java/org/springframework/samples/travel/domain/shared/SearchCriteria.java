@@ -6,7 +6,7 @@ import java.io.Serializable;
  * A backing bean for generic string search. Encapsulates the criteria needed to
  * perform search.
  */
-public final class SearchCriteria implements Serializable {
+public class SearchCriteria implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

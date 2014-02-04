@@ -1,8 +1,10 @@
 package org.springframework.samples.travel.application.impl;
 
+import org.slf4j.Logger;
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -24,7 +26,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
-		return this.userRepository.save(user);
+        user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
+        if(user.getUsername().length() < 2) {
+            return null;
+        }
+        return this.userRepository.save(user);
 	}
 
 	@Override
@@ -32,8 +38,8 @@ public class UserServiceImpl implements UserService {
 		return this.userRepository.findByUsername(username);
 	}
 
-	@Override
-	public User createUser(String username, String password, String name) {
-		return new User(username, password, name);
-	}
+    @Override
+    public User createUser() {
+        return new User();
+    }
 }
