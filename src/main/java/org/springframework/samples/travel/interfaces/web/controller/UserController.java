@@ -22,7 +22,6 @@ public class UserController {
 
     @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
     public String profile(Principal user) {
-    	System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ " + user);
     	if (user != null) {
     		return "users/profile";
     	} else {
