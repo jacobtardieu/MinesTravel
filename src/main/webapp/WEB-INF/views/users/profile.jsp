@@ -8,5 +8,5 @@
 <h1>Mon profil</h1>
 
 <p>
-	Nom : ?????
+	Nom : ${pageContext.request.userPrincipal.name}
 </p>
