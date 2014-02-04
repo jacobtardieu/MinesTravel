@@ -20,7 +20,7 @@
                         elementId : "username",
                         widgetType : "dijit.form.ValidationTextBox",
                         widgetAttrs : { required : true, invalidMessage : "2 characters required.",
-                        regExp : "[0-9A-Za-z]{2-200}"}}));
+                        regExp : ".*"}}));
                 </script>
             </p>
             <p>
