@@ -62,7 +62,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 //			roles.add(new SimpleGrantedAuthority(role));
 //		}
 		roles.add(new SimpleGrantedAuthority("ROLE_USER"));
-		roles.add(new SimpleGrantedAuthority("ROLE_SUPERVISOR"));
+//		roles.add(new SimpleGrantedAuthority("ROLE_SUPERVISOR"));
 //		Sets.newHashSet(new SimpleGrantedAuthority("ROLE_USER"))
         return new User(user.getUsername(), user.getPassword(), roles);
     }
