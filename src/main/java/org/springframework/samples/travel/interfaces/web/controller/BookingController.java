@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.samples.travel.application.BookingService;
+import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.booking.Booking;
 import org.springframework.samples.travel.domain.model.booking.Hotel;
 import org.springframework.samples.travel.domain.shared.SearchCriteria;
@@ -31,6 +32,13 @@ public class BookingController {
             List<Booking> bookingList = bookingService.findBookings(currentUser.getName());
             model.addAttribute("bookingList", bookingList);
         }
+    }
+
+    @RequestMapping(value = "/hotels/bookings/{username}", method = RequestMethod.GET)
+    public String bookings(@PathVariable String username, Model model) {
+        List<Booking> bookingList = bookingService.findBookings(username);
+        model.addAttribute("bookingList", bookingList);
+        return "hotels/bookingsTable";
     }
 
     @RequestMapping(value = "/hotels", method = RequestMethod.GET)

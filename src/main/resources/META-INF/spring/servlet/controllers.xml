@@ -17,6 +17,8 @@
 	<mvc:view-controller path="/users/logoutSuccess" />
 	<mvc:view-controller path="/users/admin" />
 
+    <mvc:view-controller path="/hotels/list" />
+
 	<!-- Handler for executions of the 'hotels/booking' flow -->
 	<bean name="hotels/booking" class="org.springframework.samples.travel.interfaces.web.flowhandler.BookingFlowHandler" />
     <bean name="users/create" class="org.springframework.samples.travel.interfaces.web.flowhandler.UserFlowHandler" />

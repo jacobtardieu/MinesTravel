@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div id="bookings" class="section">
-<security:authorize ifAllGranted="ROLE_USER">
+<security:authorize ifAllGranted="ROLE_SUPERVISOR">
 	<h2>Current Hotel Bookings</h2>
 
 	<c:if test="${empty bookingList}">
