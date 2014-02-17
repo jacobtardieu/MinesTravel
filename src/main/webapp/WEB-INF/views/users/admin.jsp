@@ -12,7 +12,7 @@
 		<tr>
 			<th>Utilisateur</th>
 			<th>Nom</th>
-			<th>Prénom</th>
+			<th>Prï¿½nom</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -27,9 +27,8 @@
 					</c:if>
 				</td>
 				<td>
-					<form>
-						<button>Delete</button>
-					<form>
+					<button>Delete</button>
+                    <button onclick="window.location.href='<c:url value="/hotels/bookings/${user.username}" />'">View bookings</button>
 				</td>
 			</tr>
 		</c:forEach>
