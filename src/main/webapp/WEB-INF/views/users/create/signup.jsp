@@ -10,6 +10,13 @@
                 <label for="name">Name:</label>
                 <br />
                 <form:input path="name"/>
+                <script type="text/javascript">
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "name",
+                        widgetType : "dijit.form.ValidationTextBox",
+                        widgetAttrs : { required : true}
+                    }));
+                </script>
             </p>
             <p>
                 <label for="username">Username:</label>
