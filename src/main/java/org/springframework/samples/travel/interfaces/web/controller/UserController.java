@@ -37,10 +37,10 @@ public class UserController {
     @RequestMapping(value = "/users/admin", method = RequestMethod.GET)
     public String list(Model model, Principal user) {
     	if (user != null && ((UsernamePasswordAuthenticationToken)user).getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPERVISOR"))) {
-    		System.out.println("AAAAAAAAAAAAAAAAA " + user);
-    		System.out.println("AAAAAAAAAAAAAAAAA " + user.getClass());
-    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities());
-    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPERVISOR")));
+//    		System.out.println("AAAAAAAAAAAAAAAAA " + user);
+//    		System.out.println("AAAAAAAAAAAAAAAAA " + user.getClass());
+//    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities());
+//    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPERVISOR")));
     		List<User> users = userService.findAllUsers();
             model.addAttribute("userList", users);
             return "users/admin";
