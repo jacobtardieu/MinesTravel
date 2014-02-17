@@ -1,5 +1,7 @@
 package org.springframework.samples.travel.application.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.user.User;
@@ -54,4 +56,9 @@ public class UserServiceImpl implements UserService {
     public User createUser() {
         return new User();
     }
+
+	@Override
+	public List<User> findAllUsers() {
+		return userRepository.findAll();
+	}
 }
