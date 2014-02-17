@@ -28,10 +28,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveUser(User user) {
-        user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
         if(user.getUsername().length() < 2) {
             return null;
         }
+        if(user.getPassword().length() < 6) {
+            return null;
+        }
+        user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
         return this.userRepository.save(user);
 	}
 
