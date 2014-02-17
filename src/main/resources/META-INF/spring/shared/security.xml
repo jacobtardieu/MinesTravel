@@ -9,7 +9,8 @@
    <http>
       <!-- Authentication policy -->
       <form-login login-page="/users/login" login-processing-url="/users/login/authenticate" default-target-url="/hotels/search"
-         authentication-failure-url="/users/login?login_error=1" />
+         authentication-failure-url="/users/login?login_error=1" authentication-success-handler-ref="authenticationListener"
+              authentication-failure-handler-ref="authenticationListener"/>
       <logout logout-url="/users/logout" logout-success-url="/users/logoutSuccess" />
    </http>
 
@@ -22,5 +23,6 @@
    </authentication-manager>
    
    <beans:bean id="inMemoryUserDetailsService" class="org.springframework.samples.travel.infrastructure.security.InMemoryUserDetailsService" />
+   <beans:bean id="authenticationListener" class="org.springframework.samples.travel.infrastructure.security.AuthenticationListener" />
 
 </beans:beans>
