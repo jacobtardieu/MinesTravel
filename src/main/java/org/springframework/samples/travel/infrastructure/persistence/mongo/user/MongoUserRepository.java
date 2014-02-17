@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
@@ -33,5 +34,9 @@ public class MongoUserRepository extends AbstractMongoRepository<User> implement
 	public List<User> findAll() {
 		return findAllUser();
 	}
-    
+	
+	@Override
+	public void deleteByUsername(String username) {
+        mongoTemplate.remove(query(where("username").is(username)), clazz);
+    }
 }
