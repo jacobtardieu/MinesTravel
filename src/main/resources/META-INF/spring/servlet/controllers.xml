@@ -21,6 +21,10 @@
 	<bean name="hotels/booking" class="org.springframework.samples.travel.interfaces.web.flowhandler.BookingFlowHandler" />
     <bean name="users/create" class="org.springframework.samples.travel.interfaces.web.flowhandler.UserFlowHandler" />
     <bean name="users/profile" class="org.springframework.samples.travel.interfaces.web.flowhandler.ProfileFlowHandler" />
+	
+    <mvc:interceptors>
+    	<bean class="org.springframework.samples.travel.MyInterceptor" />
+    </mvc:interceptors>
 
 	<!-- Scans for annotated @Controllers in the classpath -->
 	<context:component-scan base-package="org.springframework.samples.travel.interfaces.web.controller" />
