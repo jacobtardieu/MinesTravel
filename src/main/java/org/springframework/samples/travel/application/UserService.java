@@ -32,4 +32,6 @@ public interface UserService {
     User createUser();
 
 	List<User> findAllUsers();
+
+	void deleteUser(String username);
 }

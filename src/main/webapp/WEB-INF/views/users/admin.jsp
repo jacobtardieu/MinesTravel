@@ -27,9 +27,7 @@
 					</c:if>
 				</td>
 				<td>
-					<form>
-						<button>Delete</button>
-					<form>
+					<button onClick="location.href='<c:url value="/users/admin/delete/${user.username}" />'">Delete</button>
 				</td>
 			</tr>
 		</c:forEach>

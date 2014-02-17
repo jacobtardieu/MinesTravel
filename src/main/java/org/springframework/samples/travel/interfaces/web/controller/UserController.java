@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 /**
@@ -42,6 +43,18 @@ public class UserController {
 //    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities());
 //    		System.out.println(((UsernamePasswordAuthenticationToken)user).getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPERVISOR")));
     		List<User> users = userService.findAllUsers();
+            model.addAttribute("userList", users);
+            return "users/admin";
+    	} else {
+    		return "home";
+    	}
+    }
+    
+    @RequestMapping(value = "/users/admin/delete/{username}", method = RequestMethod.GET)
+    public String show(@PathVariable String username, Principal user, Model model) {
+        if (user != null && ((UsernamePasswordAuthenticationToken)user).getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPERVISOR"))) {
+        	userService.deleteUser(username);
+        	List<User> users = userService.findAllUsers();
             model.addAttribute("userList", users);
             return "users/admin";
     	} else {
