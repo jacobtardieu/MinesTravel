@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
-    public void profile(@PathVariable String id) {
+    public void profile() {
     	
     }
 }
