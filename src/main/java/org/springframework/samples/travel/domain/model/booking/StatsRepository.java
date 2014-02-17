@@ -2,10 +2,12 @@ package org.springframework.samples.travel.domain.model.booking;
 
 public interface StatsRepository {
 
-    int getFinishedBookings();
-    int getCancelledBookings();
+	int getFinishedBookings();
 
-    void incrementFinishedBookings();
-    void incrementCancelledBookings();
+	int getCancelledBookings();
+
+	void incrementFinishedBookings();
+
+	void incrementCancelledBookings();
 
 }

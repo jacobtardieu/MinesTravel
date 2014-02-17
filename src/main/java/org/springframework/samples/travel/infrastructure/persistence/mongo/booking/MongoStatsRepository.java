@@ -38,7 +38,7 @@ public class MongoStatsRepository extends AbstractMongoRepository<Stats> impleme
     public void incrementCancelledBookings() {
         Stats oldStats = findOneById("1");
         if (oldStats == null) oldStats = new Stats();
-        oldStats.setFinishedBookings(oldStats.getCancelledBookings() + 1);
+        oldStats.setCancelledBookings(oldStats.getCancelledBookings() + 1);
         save(oldStats);
     }
 }

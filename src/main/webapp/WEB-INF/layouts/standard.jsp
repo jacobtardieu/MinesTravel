@@ -33,7 +33,9 @@
                     <a href="<c:url value="/hotels/search" />">My bookings</a>
 				</security:authorize>
                 <security:authorize ifAllGranted="ROLE_SUPERVISOR">
-                    | Successful connections :  ${sessionScope["successes"]} Failed connections : ${sessionScope["failures"]}
+                    | Successful connections :  ${sessionScope["successes"]}, Failed connections : ${sessionScope["failures"]}
+                    | Finished bookings : ${sessionScope["finished"]}, Cancelled bookings : ${sessionScope["cancelled"]}
+                    
                 </security:authorize>
 				<security:authorize ifAllGranted="ROLE_ANONYMOUS">
 					<a href="<c:url value="/users/login" />">Login</a>
