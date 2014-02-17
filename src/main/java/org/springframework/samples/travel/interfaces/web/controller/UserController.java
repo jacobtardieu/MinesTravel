@@ -1,11 +1,14 @@
 package org.springframework.samples.travel.interfaces.web.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.samples.travel.application.UserService;
+import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 /**
@@ -27,5 +30,13 @@ public class UserController {
     	} else {
     		return "users/login";
     	}
+    }
+    
+    @RequestMapping(value = "/users/admin", method = RequestMethod.GET)
+    public void list(Model model, Principal user) {
+    	if (user != null)
+    		System.out.println("AAAAAAAAAAAAAAAAA " + user);
+        List<User> users = userService.findAllUsers();
+        model.addAttribute("userList", users);
     }
 }
