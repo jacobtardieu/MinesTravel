@@ -37,7 +37,7 @@
                         Welcome, ${pageContext.request.userPrincipal.name} |
                     </c:if>
                     <a href="<c:url value="/users/logout" />">Logout</a>
-                    | Successful connections :   Failed connections :
+                    | Successful connections :  ${sessionScope["successes"]} Failed connections : ${sessionScope["failures"]}
                 </security:authorize>
 				<security:authorize ifAllGranted="ROLE_ANONYMOUS">
 					<a href="<c:url value="/users/login" />">Login</a>

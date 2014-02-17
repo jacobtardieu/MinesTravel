@@ -18,12 +18,14 @@ public class AuthenticationListener implements AuthenticationSuccessHandler, Aut
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         successes++;
+        request.getSession().setAttribute("successes", ""+successes);
         response.sendRedirect("/hotels/search");
     }
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         failures++;
+        request.getSession().setAttribute("failures", ""+failures);
         response.sendRedirect("/users/login?login_error=1");
     }
 }
