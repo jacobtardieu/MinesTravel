@@ -26,5 +26,4 @@ public class MongoUserRepository extends AbstractMongoRepository<User> implement
     public User findByUsername(String username) {
         return findOneByQuery(query(where("username").is(username)));
     }
-
 }

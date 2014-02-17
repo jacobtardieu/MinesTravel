@@ -27,6 +27,13 @@
                 <label for="password">Password:</label>
                 <br />
                 <form:password path="password"/>
+                <script type="text/javascript">
+                    Spring.addDecoration(new Spring.ElementDecoration({
+                        elementId : "password",
+                        widgetType : "dijit.form.ValidationTextBox",
+                        widgetAttrs : { required : true, invalidMessage : "6 characters required and at least a letter and a number.",
+                            regExp : "(?=.*[0-9]+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,}"}}));
+                </script>
             </p>
             <p>
                 <button id="proceed" type="submit" name="_eventId_proceed">Sign up</button>

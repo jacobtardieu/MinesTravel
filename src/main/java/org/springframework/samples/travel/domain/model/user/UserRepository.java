@@ -1,5 +1,6 @@
 package org.springframework.samples.travel.domain.model.user;
 
+
 /**
  * Repository for {@linkplain User}
  */
@@ -21,4 +22,5 @@ public interface UserRepository {
 	 * @return the user saved
 	 */
 	User save(User user);
+	
 }
