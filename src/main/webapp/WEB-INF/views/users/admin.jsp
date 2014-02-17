@@ -27,7 +27,6 @@
 					</c:if>
 				</td>
 				<td>
-					<button>Delete</button>
                     <button onclick="window.location.href='<c:url value="/hotels/bookings/${user.username}" />'">View bookings</button>
 					<button onClick="location.href='<c:url value="/users/admin/delete/${user.username}" />'">Delete</button>
 				</td>
