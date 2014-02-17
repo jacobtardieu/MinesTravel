@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
 	}
 
     public User updateUser(User user) {
+        if(user.getPassword().isEmpty()) {
+            user.setPassword(this.userRepository.findByUsername(user.getUsername()).getPassword());
+        } else {
+            user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
+        }
         return this.userRepository.save(user);
     }
 

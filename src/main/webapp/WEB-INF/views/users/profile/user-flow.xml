@@ -16,6 +16,7 @@
             <binding property="name" required="true" />
             <binding property="firstname" />
             <binding property="age" />
+            <binding property="password" />
 		</binder>
 		<transition on="proceed" to="updateUser" />
 	</view-state>
