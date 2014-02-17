@@ -58,7 +58,7 @@
 			</p>
 			<p>
 				<button id="submit" type="submit">Login</button>
-                <a href="/users/create">Sign up</a>
+                <a href="<c:url value="/users/create" />">Sign up</a>
 				<script type="text/javascript">
 					Spring.addDecoration(new Spring.ValidateAllDecoration({event : 'onclick', elementId : 'submit'}));
 				</script>

@@ -12,7 +12,6 @@ import org.springframework.samples.travel.domain.model.booking.HotelRepository;
 import org.springframework.samples.travel.domain.model.user.User;
 import org.springframework.samples.travel.domain.model.user.UserRepository;
 import org.springframework.samples.travel.domain.shared.SearchCriteria;
-import org.springframework.samples.travel.infrastructure.persistence.mongo.user.MongoUserRepository;
 import org.springframework.stereotype.Service;
 
 @Service("bookingService")

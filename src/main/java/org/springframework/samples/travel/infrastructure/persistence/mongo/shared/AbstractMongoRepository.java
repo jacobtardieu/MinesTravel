@@ -46,5 +46,4 @@ public abstract class AbstractMongoRepository<T> {
     public void delete(String id) {
         mongoTemplate.remove(query(where("_id").is(new ObjectId(id))), clazz);
     }
-
 }
