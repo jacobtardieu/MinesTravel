@@ -16,4 +16,7 @@
 	<definition name="users/profile" extends="standardLayout">
 		<put-attribute name="body" value="/WEB-INF/views/users/profile.jsp" />
 	</definition>
+	<definition name="users/admin" extends="standardLayout">
+		<put-attribute name="body" value="/WEB-INF/views/users/admin.jsp" />
+	</definition>
 </tiles-definitions>
