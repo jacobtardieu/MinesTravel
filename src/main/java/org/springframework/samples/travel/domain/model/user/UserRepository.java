@@ -22,5 +22,5 @@ public interface UserRepository {
 	 * @return the user saved
 	 */
 	User save(User user);
-	
+
 }

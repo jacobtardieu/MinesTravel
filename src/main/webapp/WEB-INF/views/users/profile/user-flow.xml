@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <secured attributes="ROLE_USER" />
+
+    <persistence-context/>
+
+    <on-start>
+        <evaluate expression="userService.findByUsername(currentUser.name)" result="flowScope.user" />
+    </on-start>
+
+	<view-state id="profile" model="user">
+		<binder>
+            <binding property="name" required="true" />
+            <binding property="firstname" />
+            <binding property="age" />
+		</binder>
+		<transition on="proceed" to="updateUser" />
+	</view-state>
+
+	<end-state id="updateUser" commit="true" >
+      <on-entry>
+          <evaluate expression="userService.updateUser(flowScope.user)" result="flowScope.user" />
+      </on-entry>
+    </end-state>
+
+</flow>

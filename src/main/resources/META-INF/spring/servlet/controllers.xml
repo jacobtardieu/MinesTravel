@@ -13,14 +13,13 @@
 
 	<!-- Maps '/users/login' requests to the 'users/login' view -->
 	<mvc:view-controller path="/users/login" />
-	<mvc:view-controller path="/users/profile" />
 	<mvc:view-controller path="/users/logout" />
-	<mvc:view-controller path="/users/profile" />
 	<mvc:view-controller path="/users/logoutSuccess" />
 
 	<!-- Handler for executions of the 'hotels/booking' flow -->
 	<bean name="hotels/booking" class="org.springframework.samples.travel.interfaces.web.flowhandler.BookingFlowHandler" />
     <bean name="users/create" class="org.springframework.samples.travel.interfaces.web.flowhandler.UserFlowHandler" />
+    <bean name="users/profile" class="org.springframework.samples.travel.interfaces.web.flowhandler.ProfileFlowHandler" />
 
 	<!-- Scans for annotated @Controllers in the classpath -->
 	<context:component-scan base-package="org.springframework.samples.travel.interfaces.web.controller" />

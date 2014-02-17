@@ -28,6 +28,10 @@ public class User implements Serializable {
 
     private String name;
 
+    private String firstname;
+
+    private int age;
+
     private List<String> roles;
 
     public User() {
@@ -83,5 +87,21 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User(" + username + ")";
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
