@@ -13,6 +13,7 @@
 			<th>Utilisateur</th>
 			<th>Nom</th>
 			<th>Prénom</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,9 +22,14 @@
 				<td>${user.username}</td>
 				<td>${user.name}</td>
 				<td>
-				<c:if test="${user.firstname != null}">
-					${user.firstname}
-				</c:if>
+					<c:if test="${user.firstname != null}">
+						${user.firstname}
+					</c:if>
+				</td>
+				<td>
+					<form>
+						<button>Delete</button>
+					<form>
 				</td>
 			</tr>
 		</c:forEach>
