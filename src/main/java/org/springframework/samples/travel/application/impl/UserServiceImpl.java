@@ -32,9 +32,6 @@ public class UserServiceImpl implements UserService {
         if(user.getPassword().length() < 6) {
             return null;
         }
-        if(!user.getUsername().matches("(?=.*[0-9]+)(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%]{6,}")) {
-            return null;
-        }
         user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
         return this.userRepository.save(user);
 	}
