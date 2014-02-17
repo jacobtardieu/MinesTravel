@@ -20,7 +20,11 @@
 			<tr>
 				<td>${user.username}</td>
 				<td>${user.name}</td>
-				<td></td>
+				<td>
+				<c:if test="${user.firstname != null}">
+					${user.firstname}
+				</c:if>
+				</td>
 			</tr>
 		</c:forEach>
 	</tbody>
