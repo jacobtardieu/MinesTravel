@@ -34,6 +34,10 @@ public abstract class AbstractMongoRepository<T> {
         return mongoTemplate.find(query, clazz);
     }
 
+    protected List<T> findAllUser() {
+        return mongoTemplate.findAll(clazz);
+    }
+    
     protected T findOneByQuery(Query query) {
         return mongoTemplate.findOne(query, clazz);
     }
@@ -46,5 +50,4 @@ public abstract class AbstractMongoRepository<T> {
     public void delete(String id) {
         mongoTemplate.remove(query(where("_id").is(new ObjectId(id))), clazz);
     }
-
 }

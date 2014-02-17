@@ -3,6 +3,8 @@ package org.springframework.samples.travel.infrastructure.persistence.mongo.user
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -27,4 +29,9 @@ public class MongoUserRepository extends AbstractMongoRepository<User> implement
         return findOneByQuery(query(where("username").is(username)));
     }
 
+	@Override
+	public List<User> findAll() {
+		return findAllUser();
+	}
+    
 }

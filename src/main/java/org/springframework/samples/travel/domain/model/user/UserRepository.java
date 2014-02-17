@@ -1,5 +1,7 @@
 package org.springframework.samples.travel.domain.model.user;
 
+import java.util.List;
+
 /**
  * Repository for {@linkplain User}
  */
@@ -21,4 +23,6 @@ public interface UserRepository {
 	 * @return the user saved
 	 */
 	User save(User user);
+
+	List<User> findAll();
 }

@@ -7,6 +7,17 @@
 
 <h1>Liste des utilisateurs</h1>
 
-<p>
-	Utilisateur		Nom		Prénom
-</p>
+<table>
+	<tr>
+		<th>Utilisateur</th>
+		<th>Nom</th>
+		<th>Prénom</th>
+	</tr>
+	<c:forEach var="user" items="${userList}">
+		<tr>
+			<td>${user.username}</td>
+			<td>${user.name}</td>
+			<td></td>
+		</tr>
+	</c:forEach>
+</table>
