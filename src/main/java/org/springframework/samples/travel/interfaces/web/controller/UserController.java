@@ -1,10 +1,11 @@
 package org.springframework.samples.travel.interfaces.web.controller;
 
+import java.security.Principal;
+
 import javax.inject.Inject;
 
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 /**
@@ -20,7 +21,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/profile", method = RequestMethod.GET)
-    public void profile(@PathVariable String id) {
-    	
+    public String profile(Principal user) {
+    	if (user != null) {
+    		return "users/profile";
+    	} else {
+    		return "users/login";
+    	}
     }
 }
