@@ -19,7 +19,7 @@
 	<c:if test="${not empty param.login_error}">
 		<div class="error">
 			Your login attempt was not successful, try again.<br /><br />
-			Reason: <%= ((AuthenticationException) session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION)).getMessage() %>
+			Reason: Bad credentials
 		</div>
 	</c:if>
 	<form name="f" action="<c:url value="/users/login/authenticate" />" method="post">
@@ -28,7 +28,7 @@
 			<p>
 				<label for="j_username">User:</label>
 				<br />
-				<input type="text" name="j_username" id="j_username" <c:if test="${not empty param.login_error}">value="<%= session.getAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY) %>"</c:if> />
+				<input type="text" name="j_username" id="j_username" />
 				<script type="text/javascript">
 					Spring.addDecoration(new Spring.ElementDecoration({
 						elementId : "j_username",
