@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.google.common.collect.Sets;
-
 /**
  * <p>
  * This class implements a in memory {@linkplain UserDetailsService}. Users are
@@ -55,16 +53,15 @@ public class DatabaseUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     	org.springframework.samples.travel.domain.model.user.User user = userRepository.findByUsername(username);
     	Logger log = (Logger) LoggerFactory.getLogger(DatabaseUserDetailsService.class);
-        if (user == null) {
+        if (user == null)
             throw new UsernameNotFoundException("invalid username");
-        }
-        log.error("Hello World");
-        log.error(user.getName());
-        log.error(user.getPassword());
+        
         List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
-		for (String role : user.getRoles()) {
-			roles.add(new SimpleGrantedAuthority(role));
-		}
+//		for (String role : user.getRoles()) {
+			
+//			roles.add(new SimpleGrantedAuthority(role));
+//		}
+		roles.add(new SimpleGrantedAuthority("ROLE_USER"));
 //		Sets.newHashSet(new SimpleGrantedAuthority("ROLE_USER"))
         return new User(user.getUsername(), user.getPassword(), roles);
     }
