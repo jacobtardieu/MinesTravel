@@ -34,6 +34,10 @@ public abstract class AbstractMongoRepository<T> {
         return mongoTemplate.find(query, clazz);
     }
 
+    protected List<T> findAllUser() {
+        return mongoTemplate.findAll(clazz);
+    }
+    
     protected T findOneByQuery(Query query) {
         return mongoTemplate.findOne(query, clazz);
     }

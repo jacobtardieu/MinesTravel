@@ -38,6 +38,10 @@
 				<security:authorize ifAllGranted="ROLE_ANONYMOUS">
 					<a href="<c:url value="/users/login" />">Login</a>
 				</security:authorize>
+				<security:authorize ifAllGranted="ROLE_SUPERVISOR">
+					|
+                    <a href="<c:url value="/users/admin" />">Users</a>
+				</security:authorize>
 			</p>
 		</div>
 		<div id="logo">

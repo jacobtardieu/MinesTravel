@@ -1,5 +1,7 @@
 package org.springframework.samples.travel.application;
 
+import java.util.List;
+
 import org.springframework.samples.travel.domain.model.user.User;
 
 /**
@@ -28,4 +30,6 @@ public interface UserService {
 	User findByUsername(String username);
 
     User createUser();
+
+	List<User> findAllUsers();
 }

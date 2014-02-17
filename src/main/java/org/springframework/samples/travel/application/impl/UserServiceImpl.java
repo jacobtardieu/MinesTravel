@@ -1,5 +1,7 @@
 package org.springframework.samples.travel.application.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.springframework.samples.travel.application.UserService;
 import org.springframework.samples.travel.domain.model.user.User;
@@ -37,6 +39,11 @@ public class UserServiceImpl implements UserService {
 	}
 
     public User updateUser(User user) {
+        if(user.getPassword().isEmpty()) {
+            user.setPassword(this.userRepository.findByUsername(user.getUsername()).getPassword());
+        } else {
+            user.setPassword((new Md5PasswordEncoder()).encodePassword(user.getPassword(), null));
+        }
         return this.userRepository.save(user);
     }
 
@@ -49,4 +56,9 @@ public class UserServiceImpl implements UserService {
     public User createUser() {
         return new User();
     }
+
+	@Override
+	public List<User> findAllUsers() {
+		return userRepository.findAll();
+	}
 }
